@@ -1,0 +1,1 @@
+This is my interpretation of the Little Lemon App from the React Course Capstone Project.
