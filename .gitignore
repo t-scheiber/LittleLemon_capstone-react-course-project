@@ -23,3 +23,9 @@ build
 *.njsproj
 *.sln
 *.sw?
+
+.claude/
+.vscode/
+.cursor/
+.chatgpt/
+.gemini/
