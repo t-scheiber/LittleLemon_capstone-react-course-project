@@ -9,6 +9,9 @@ const __dirname = dirname(__filename);
 const compat = new FlatCompat({ baseDirectory: __dirname });
 
 export default [
+  {
+    ignores: ["dist/**", "build/**", "coverage/**"],
+  },
   ...compat.extends(
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
