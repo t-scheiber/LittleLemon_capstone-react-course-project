@@ -3,7 +3,7 @@ import { Container, Top, Confirmation } from "./styles";
 import { useNavigate, NavigateFunction } from "react-router-dom";
 import Button from "../Button";
 
-const ConfirmedBooking: FC<HTMLAttributes<HTMLDivElement>> = (props): JSX.Element => {
+const ConfirmedBooking: FC<HTMLAttributes<HTMLDivElement>> = (props) => {
   const navigate: NavigateFunction = useNavigate();
   // Use lazy initialization to avoid setState in useEffect
   const [booking] = useState<{ date: string, time: string, guests: string, occasion: string } | undefined>(() => {

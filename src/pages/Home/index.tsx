@@ -7,7 +7,7 @@ import Specials from "../../components/Specials";
 import CustomersSay from "../../components/CustomersSay";
 import Vienna from "../../components/Vienna";
 
-const Home: FC = (): JSX.Element => {
+const Home: FC = () => {
   return (
     <Container>
       <Header />
