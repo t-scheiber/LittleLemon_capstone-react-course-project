@@ -3,7 +3,7 @@ import { Container, Content } from "./styles";
 import Nav from "../Nav";
 import MobileNav from "../MobileNav";
 
-const Header: FC<HTMLAttributes<HTMLElement>> = (props): JSX.Element => {
+const Header: FC<HTMLAttributes<HTMLElement>> = (props) => {
   const headerRef: MutableRefObject<HTMLElement | null> = useRef(null);
   const [_, setLastScrollPosition] = useState(window.pageYOffset || document.documentElement.scrollTop);
 

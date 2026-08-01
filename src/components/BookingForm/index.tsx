@@ -12,7 +12,7 @@ interface BookingFormProps extends HTMLAttributes<HTMLDivElement> {
   };
 };
 
-const BookingForm: FC<BookingFormProps> = ({ availableTimes, dispatch, ...props }): JSX.Element => {
+const BookingForm: FC<BookingFormProps> = ({ availableTimes, dispatch, ...props }) => {
   const navigate: NavigateFunction = useNavigate();
 
   const formik = useFormik({

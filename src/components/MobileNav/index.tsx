@@ -6,7 +6,7 @@ import menuImg from "../../assets/icon _hamburger_menu.svg";
 import basketImg from "../../assets/basket.svg";
 import closeImg from "../../assets/close.svg";
 
-const MobileNav: FC<HTMLAttributes<HTMLElement>> = (props): JSX.Element => {
+const MobileNav: FC<HTMLAttributes<HTMLElement>> = (props) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenu = () => {

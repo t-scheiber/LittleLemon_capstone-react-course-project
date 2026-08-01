@@ -3,7 +3,7 @@ import { Container, Content, Image } from "./styles";
 import Mario_and_Adrian_A from "../../assets/Mario_and_Adrian_A.jpg";
 import Mario_and_Adrian_B from "../../assets/Mario_and_Adrian_B.jpg";
 
-const Vienna: FC = (): JSX.Element => {
+const Vienna: FC = () => {
   return (
     <Container id="about">
       <Content>

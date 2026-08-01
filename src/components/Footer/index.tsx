@@ -3,7 +3,7 @@ import { HashLink } from "react-router-hash-link";
 import { Container, Content, Copyright, Column, Image } from "./styles";
 import restaurant from "../../assets/restaurant.jpg";
 
-const Footer: FC<HTMLAttributes<HTMLElement>> = (props): JSX.Element => {
+const Footer: FC<HTMLAttributes<HTMLElement>> = (props) => {
   return (
     <Container {...props}>
       <Content>

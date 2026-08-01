@@ -5,7 +5,7 @@ import BookingForm from "../../components/BookingForm";
 import Footer from "../../components/Footer";
 import { updateTimes, initializeTimes } from "../../utils/temp";
 
-const Bookingpage: FC = (): JSX.Element => {
+const Bookingpage: FC = () => {
   const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 
   return (

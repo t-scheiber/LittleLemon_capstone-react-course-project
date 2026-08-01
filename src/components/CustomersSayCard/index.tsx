@@ -14,7 +14,7 @@ const CustomersSayCard: FC<CustomersSayCardProps> = ({
   customerName,
   testimonial,
   ...props
-}): JSX.Element => {
+}) => {
   const stars: { [key: number]: string } = {
     1: "★☆☆☆☆",
     2: "★★☆☆☆",

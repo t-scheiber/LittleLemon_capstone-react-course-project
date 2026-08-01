@@ -4,7 +4,7 @@ import { useNavigate, NavigateFunction } from "react-router-dom";
 import { Container, Content, Image } from "./styles";
 import restaurant_food from "../../assets/restaurantfood.jpg";
 
-const CallToAction: FC = ():  JSX.Element => {
+const CallToAction: FC = () => {
   const navigate: NavigateFunction = useNavigate();
 
   return (

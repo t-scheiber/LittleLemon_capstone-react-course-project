@@ -2,7 +2,7 @@ import { FC, HTMLAttributes } from "react";
 import { Container, Title, Cards } from "./styles";
 import CustomersSayCard from "../CustomersSayCard";
 
-const CustomersSay: FC<HTMLAttributes<HTMLDivElement>> = (props): JSX.Element => {
+const CustomersSay: FC<HTMLAttributes<HTMLDivElement>> = (props) => {
   return (
     <Container {...props}>
       <Title>What our customers say!</Title>
