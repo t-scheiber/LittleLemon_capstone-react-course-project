@@ -6,7 +6,7 @@ import greekSalad from "../../assets/greekSalad.jpg";
 import bruschetta from "../../assets/bruschetta.svg";
 import lemonDessert from "../../assets/lemonDessert.jpg";
 
-const Specials: FC<HTMLAttributes<HTMLDivElement>> = (props): JSX.Element => {
+const Specials: FC<HTMLAttributes<HTMLDivElement>> = (props) => {
   return (
     <Container {...props} id="menu">
       <Top>

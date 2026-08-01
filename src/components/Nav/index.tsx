@@ -4,7 +4,7 @@ import { Container } from "./styles";
 import logoImg from "../../assets/Logo.svg";
 import basketImg from "../../assets/basket.svg";
 
-const Nav: FC<HTMLAttributes<HTMLElement>> = (props): JSX.Element => {
+const Nav: FC<HTMLAttributes<HTMLElement>> = (props) => {
   return (
     <Container {...props}>
         <ul>
