@@ -34,7 +34,7 @@
     "@types/jest": "^30.0.0",
     "@types/mocha": "^10.0.10",
     "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
+    "@types/react-dom": "^19.2.5",
     "@types/react-router-hash-link": "^2.4.9",
     "@types/styled-components": "^5.1.36",
     "@typescript-eslint/eslint-plugin": "^8.60.0",
