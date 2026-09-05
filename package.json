@@ -55,6 +55,9 @@
     "transform": {
       "^.+\\.(ts|tsx|js|jsx)$": "ts-jest",
       "^.+\\.(svg|jpg|png)$": "<rootDir>/svgTransform.ts"
-    }
+    },
+    "setupFiles": [
+      "<rootDir>/jest.setup.cjs"
+    ]
   }
 }
