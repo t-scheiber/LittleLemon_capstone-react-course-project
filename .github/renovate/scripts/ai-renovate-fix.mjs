@@ -4,8 +4,8 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 
-import { providerConfig, requestRepair } from './ai-provider.mjs';
-import { assertRepairPolicy } from './repair-policy.mjs';
+import { providerConfig, requestRepair } from "./ai-provider.mjs";
+import { assertRepairPolicy } from "./repair-policy.mjs";
 const aiConfig = providerConfig();
 delete process.env.OPENAI_API_KEY;
 delete process.env.OPENROUTER_API_KEY;
@@ -185,7 +185,7 @@ async function collectContext(logText) {
   const fullDiff = git(`diff ${diffRange}`);
 
   return {
-    releaseNotes: process.env.RUNNER_TEMP ? await fs.readFile(path.join(process.env.RUNNER_TEMP,'renovate-release-notes.md'),'utf8').catch(()=>'') : '',
+    releaseNotes: process.env.RUNNER_TEMP ? await fs.readFile(path.join(process.env.RUNNER_TEMP,"renovate-release-notes.md"),"utf8").catch(()=>"") : "",
     branch: git("rev-parse --abbrev-ref HEAD"),
     lastCommit: git("show --stat --oneline --no-patch HEAD"),
     diffSummary: git(`diff --stat ${diffRange}`),
@@ -232,9 +232,9 @@ async function callAI(prompt) {
 }
 
 function applyPatch(patchPath) {
-  const check = runFile('git', ['apply', '--check', '--whitespace=nowarn', patchPath]);
+  const check = runFile("git", ["apply", "--check", "--whitespace=nowarn", patchPath]);
   if (check.status !== 0) return { ok: false, error: check.stderr };
-  const applied = runFile('git', ['apply', '--whitespace=nowarn', patchPath]);
+  const applied = runFile("git", ["apply", "--whitespace=nowarn", patchPath]);
   return { ok: applied.status === 0, error: applied.stderr };
 }
 
@@ -398,7 +398,7 @@ async function main() {
   const commands = args.commands.filter(Boolean);
   const maxAttempts = args.attempts || 3;
   if (!Number.isInteger(maxAttempts) || maxAttempts < 1 || maxAttempts > 3) {
-    throw new Error('Repair attempts must be between 1 and 3');
+    throw new Error("Repair attempts must be between 1 and 3");
   }
 
   if (args.conflicts) {
