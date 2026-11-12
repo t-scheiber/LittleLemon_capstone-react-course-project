@@ -1,176 +1,63 @@
-# Little Lemon Restaurant - React Capstone Project 🍋
+# Little Lemon, React capstone project
+Capstone project of the Meta Front-End Developer certificate on Coursera, taken by Thomas Scheiber in 2023 and 2024.
 
-**🌐 Live Site:** [little-lemon.thomasscheiber.com](https://little-lemon.thomasscheiber.com/)
+A single-page React site for a Mediterranean restaurant, written in TypeScript and built with Vite. It has a home page, a table booking form and a confirmation page. Nothing is sent to a server, because the repository has no backend.
 
-A modern restaurant website built with React and TypeScript, featuring online table reservations, menu browsing, and a polished user interface. Created as the capstone project for Meta's React course.
+## Stack
 
-## 🍋 Project Overview
+- React 19.3 and React Router 7.18 (`react-router-dom`), with `react-router-hash-link` for `#about` and `#menu` links
+- styled-components 6.6 for styles, with a theme in `src/styles/theme.ts`
+- Formik 2.4 for form state and Yup 1.7 for validation
+- TypeScript 6.0 in strict mode, Vite 8.3 and `@vitejs/plugin-react` 6.3
+- Jest 30.5 with ts-jest and jsdom for tests, ESLint 10.14 for linting
 
-Little Lemon is a family-owned Mediterranean restaurant that combines traditional recipes with a modern twist. This website provides customers with an intuitive online experience for browsing the menu and booking tables.
+## Pages
 
-## ✨ Features
+- `/` (Home) has a hero with a "Reserve a Table" button that opens `/bookings`, three specials with prices (Greek Salad 12.99 €, Bruschetta 7.99 €, Lemon Dessert 6.99 €), four static customer testimonials and an About section (`#about`).
+- `/bookings` has the table booking form described below.
+- `/confirmation` shows the last booking saved in `localStorage`. Without a saved booking, it shows only the thank-you text.
 
-- **Table Reservation System**: Book tables online with date and time selection
-- **Menu Display**: Browse the restaurant's offerings
-- **Responsive Design**: Seamless experience across all devices
-- **Form Validation**: Robust input validation for reservations
-- **Modern UI**: Clean, professional interface
-- **Fast Performance**: Optimized React application
-- **TypeScript**: Type-safe code for better reliability
+The header slides out of view when the page scrolls down and returns when it scrolls up. At 768px or narrower, the desktop links are hidden and a menu button opens a separate menu.
 
-## 🛠️ Technologies Used
+The "Order a delivery" and "Online Menu" buttons have no click handler. The "Order Online" and "Login" links point to `#` or `/#` and go nowhere.
 
-- **React 18** - Modern UI library
-- **TypeScript** - Type-safe JavaScript
-- **Vite** - Fast build tool and development server
-- **React Router** - Client-side routing
-- **Formik** - Form management
-- **Yup** - Schema validation
-- **CSS3** - Styling and animations
+## Table booking form
 
-## 🎯 Key Features
+The form uses Formik for state and Yup for validation. Errors appear under each field once the field has been touched, and the browser's own validation is turned off.
 
-### Online Reservations
-- Date and time picker
-- Party size selection
-- Special occasion options
-- Form validation
-- Confirmation system
+- Date: required. It defaults to today's date.
+- Time: a select list filled from the chosen date. The value must be one of the offered times.
+- Number of guests: a number from 1 to 10. Decimal values are not rejected.
+- Occasion: one of `birthday`, `engagement` or `anniversary`.
 
-### Menu Showcase
-- High-quality food images
-- Detailed descriptions
-- Category organization
-- Pricing information
+The offered times come from `fetchAPI` in `src/utils/temp.ts`, which does not check any availability. It seeds a random generator with the day of the month, so the same day number gives the same times in every month. For each hour from 17:00 to 23:00, the generator offers the full hour and the half hour, each with a 50% chance.
 
-### User Experience
-- Intuitive navigation
-- Mobile-first design
-- Fast loading times
-- Smooth animations
+On submit, `submitAPI` in the same file returns `true` without a network request. The form then saves the values under the `Bookings` key in `localStorage`, replacing any earlier booking in that browser, and navigates to `/confirmation`.
 
-## 📦 Installation & Setup
+## Run it locally
+
+The lockfile is `bun.lock`, so use Bun.
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
+bun install
+bun run dev      # Vite dev server on port 3000
+bun run build    # tsc, then vite build into dist/
+bun run start    # vite preview on $PORT (default 3000), serves dist/ after a build
+bun run test     # Jest, 4 tests in src/components/BookingForm
+bun run lint     # ESLint with the flat config in eslint.config.mjs
 ```
 
-## 🏗️ Project Structure
+The only environment variable is `PORT`, read by `bun run start`. The application code reads none. The repository has no deployment configuration. `bun run build` writes a static site to `dist/`.
 
-```
-src/
-├── components/        # Reusable React components
-├── pages/            # Page components
-├── assets/           # Images and static files
-├── hooks/            # Custom React hooks
-├── utils/            # Helper functions
-├── types/            # TypeScript type definitions
-└── App.tsx           # Main application component
-```
+## Project layout
 
-## 🎨 Design Features
+- `src/components/` has one folder per component, each with its `styles` file.
+- `src/pages/` has the three page components, and `src/routes.tsx` maps them to paths.
+- `src/utils/temp.ts` holds the time generator, the submit stub and the reducer for the time list.
+- `src/assets/` holds the photos and SVG icons.
 
-- **Mediterranean Theme**: Colors and styling inspired by Mediterranean cuisine
-- **Professional Layout**: Clean, organized information architecture
-- **Visual Hierarchy**: Clear focus on important elements
-- **Accessibility**: WCAG compliant design
-- **Brand Consistency**: Cohesive visual identity
+## Limits
 
-## 📱 Responsive Design
-
-Optimized for:
-- Desktop (1920px+)
-- Laptop (1024px+)
-- Tablet (768px+)
-- Mobile (320px+)
-
-## 🚀 Performance
-
-- Code splitting for faster initial load
-- Lazy loading of images
-- Optimized bundle size
-- Fast page transitions
-- Efficient re-renders
-
-## 📚 Learning Outcomes
-
-This capstone project demonstrates mastery of:
-
-### React Fundamentals
-- Component composition
-- Props and state management
-- Hooks (useState, useEffect, useContext, custom hooks)
-- Event handling
-- Conditional rendering
-
-### Advanced React
-- React Router for navigation
-- Form handling with Formik
-- Schema validation with Yup
-- Context API for state management
-- Performance optimization
-
-### TypeScript
-- Type definitions
-- Interfaces
-- Type safety
-- Generic types
-
-### Best Practices
-- Component architecture
-- Code organization
-- Accessibility
-- Responsive design
-- Testing considerations
-
-## 🎓 Course Context
-
-This project is the **capstone project** for Meta's React Course, demonstrating proficiency in:
-- Modern React development
-- Component-based architecture
-- State management
-- Form handling and validation
-- Responsive web design
-- TypeScript integration
-
-## 🌐 Deployment
-
-**Live Site:** [little-lemon.thomasscheiber.com](https://little-lemon.thomasscheiber.com/)
-
-Deployed on Vercel for optimal performance and reliability.
-
-```bash
-# Build and deploy
-npm run build
-# Upload dist/ folder to hosting service
-```
-
-## 🔧 Configuration
-
-- **Vite Config**: `vite.config.ts`
-- **TypeScript Config**: `tsconfig.json`
-- **Vercel Config**: `vercel.json`
-
-## 🎯 Future Enhancements
-
-- Online ordering system
-- User accounts
-- Order history
-- Payment integration
-- Reviews and ratings
-- Newsletter signup
-- Live chat support
-
----
-
-**Built with React** ⚛️ | **Powered by TypeScript** 💙 | **Meta Certified Project** 🎓
+- There is no backend, so bookings never leave the browser, and the restaurant's real availability is not checked.
+- Each booking overwrites the previous one in `localStorage`.
+- The site has no authentication, no order flow and no menu page.
